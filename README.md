@@ -19,3 +19,5 @@ Open the IDE and open the [HumanoidWalk.clu](https://github.com/the-other-marian
 
 ![image](https://github.com/the-other-mariana/humanoid-cga/blob/master/media/demo-gif.gif) <br />
 
+## Handy Links
+- [Git Size Limit](https://thomas-cokelaer.info/blog/2018/02/git-how-to-remove-a-big-file-wrongly-committed/)
