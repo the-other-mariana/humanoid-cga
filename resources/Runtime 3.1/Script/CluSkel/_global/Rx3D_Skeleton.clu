@@ -1,0 +1,63 @@
+// Filetype:Rx3D
+_BGColor = White;
+
+// Things that should only be done once at the start of the script
+if ( ExecMode & EM_CHANGE )
+{
+	_bDataSet = true;
+	sFilename = @"Pflanze_01.rx3d";
+	sLogoText = "\\it Powered by CLUViz 7";
+	dDegPerSec = 0.25;
+	dMaxDeg = 45;
+	dViewAngle = 40;
+	dBrightness = 1.25;
+	iAnimTimeStep = 80;
+	dImgRotDeg = 270;
+	
+	sPaintType = "image";
+	lPaintType = ["image", "topo", "mix", "topotex"];
+//	lPaintType = ["image", "topo", "topotex"];
+	
+	dPaintSplitAlign = 0.0;
+	dPaintSplitSide = -1.0;
+	dTopoLevelCount = 30.0;
+	dTopoLevelWidth = 0.1;
+	
+	dDepthMin = 0.0;
+	dDepthMax = 0.0;
+	dDepthGamma = 0.0;
+	
+	dObjectWidth = 3.0;
+	dObjectScale = 0.0;
+	
+	dBorderTop = 0.0;
+	dBorderRight = 0.0;
+	dBorderBottom = 0.0;
+	dBorderLeft = 0.0;
+
+	bAnimDrag = false;
+	bEnableLogo = true;
+	bEnableImage = false;
+
+	bShowView_Depth = true;
+	bShowView_Image = true;
+
+	bShowBut_EnableAnim = true;
+	bShowBut_Video = true;
+	bShowBut_Paint = true;
+
+	bEnableFocusPlane = false;
+	bEnableImageDefocus = true;
+	bShowSlider_BlurGrad = false;
+	bShowSlider_DefocusGrad = true;
+	
+	bAnimPlay = false;
+	bAnimRot = true;
+	sAnimRotType = "PingPong";
+	[dAX1,dAY1,dAZ1, dAA1] = [0,1,0,0];
+	
+	[dX1,dY1,dZ1, dA1] = [0,1,0,0];
+	[dX2, dY2, dZ2, dA2] = [1,0,0,0];
+}
+
+//# include "View_Rx3D_v3_0.cbn"

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<CLUFont version="1.0">
+  <font face="std" id="CLUFont_symbols_std_25" mag_step="25" name="symbols">
+    <sym b="0" h="4" id="95" id_is_num="1" w="29" x="0" y="0"/>
+    <sym b="2" h="60" id="94" id_is_num="1" w="54" x="29" y="0"/>
+    <sym b="21" h="91" id="35" id_is_num="1" w="28" x="83" y="0"/>
+    <sym b="-13" h="23" id="126" id_is_num="1" w="65" x="111" y="0"/>
+    <sym b="24" h="97" id="92" id_is_num="1" w="38" x="176" y="0"/>
+    <sym b="24" h="97" id="123" id_is_num="1" w="35" x="214" y="0"/>
+    <sym b="24" h="97" id="125" id_is_num="1" w="35" x="249" y="0"/>
+    <sym b="2" h="72" id="38" id_is_num="1" w="67" x="284" y="0"/>
+    <sym b="5" h="78" id="37" id_is_num="1" w="71" x="351" y="0"/>
+    <sym b="5" h="78" id="36" id_is_num="1" w="38" x="422" y="0"/>
+    <sym b="20" h="89" id="167" id_is_num="1" w="31" x="460" y="0"/>
+    <sym b="19" h="87" id="80" id_is_num="1" w="52" x="491" y="0"/>
+    <sym b="21" h="91" id="copyright" id_is_num="0" w="87" x="543" y="0"/>
+    <sym b="1" h="70" id="pounds" id_is_num="0" w="55" x="630" y="0"/>
+    <sym b="17" h="86" id="circledR" id_is_num="0" w="86" x="685" y="0"/>
+    <sym b="3" h="71" id="checkmark" id_is_num="0" w="65" x="771" y="0"/>
+    <sym b="0" h="66" id="yen" id_is_num="0" w="71" x="836" y="0"/>
+    <sym b="1" h="44" id="infty" id_is_num="0" w="87" x="907" y="0"/>
+    <sym b="2" h="72" id="partial" id_is_num="0" w="51" x="994" y="0"/>
+    <sym b="3" h="69" id="nabla" id_is_num="0" w="73" x="1045" y="0"/>
+    <sym b="0" h="70" id="triangle" id_is_num="0" w="75" x="1118" y="0"/>
+    <sym b="2" h="70" id="forall" id_is_num="0" w="54" x="1193" y="0"/>
+    <sym b="0" h="68" id="exists" id_is_num="0" w="44" x="1247" y="0"/>
+    <sym b="8" h="82" id="emptyset" id_is_num="0" w="40" x="1291" y="0"/>
+    <sym b="-4" h="50" id="prime" id_is_num="0" w="23" x="1331" y="0"/>
+    <sym b="0" h="68" id="angle" id_is_num="0" w="60" x="1354" y="0"/>
+    <sym b="21" h="90" id="dag" id_is_num="0" w="33" x="1414" y="0"/>
+    <sym b="20" h="89" id="ddag" id_is_num="0" w="33" x="1447" y="0"/>
+  </font>
+</CLUFont>

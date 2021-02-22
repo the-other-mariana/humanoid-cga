@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<CLUFont version="1.0">
+  <font face="std" id="CLUFont_greek_std_07" mag_step="7" name="greek">
+    <sym b="0" h="8" id="alpha" id_is_num="0" w="12" x="0" y="0"/>
+    <sym b="4" h="17" id="beta" id_is_num="0" w="12" x="12" y="0"/>
+    <sym b="4" h="12" id="gamma" id_is_num="0" w="11" x="24" y="0"/>
+    <sym b="0" h="14" id="delta" id_is_num="0" w="9" x="35" y="0"/>
+    <sym b="0" h="8" id="epsilon" id_is_num="0" w="6" x="44" y="0"/>
+    <sym b="0" h="9" id="varepsilon" id_is_num="0" w="8" x="50" y="0"/>
+    <sym b="4" h="17" id="zeta" id_is_num="0" w="8" x="58" y="0"/>
+    <sym b="4" h="12" id="eta" id_is_num="0" w="10" x="66" y="0"/>
+    <sym b="0" h="13" id="theta" id_is_num="0" w="9" x="76" y="0"/>
+    <sym b="0" h="13" id="vartheta" id_is_num="0" w="11" x="85" y="0"/>
+    <sym b="0" h="8" id="iota" id_is_num="0" w="5" x="96" y="0"/>
+    <sym b="0" h="9" id="kappa" id_is_num="0" w="10" x="101" y="0"/>
+    <sym b="1" h="14" id="lambda" id_is_num="0" w="10" x="111" y="0"/>
+    <sym b="4" h="12" id="mu" id_is_num="0" w="11" x="121" y="0"/>
+    <sym b="0" h="8" id="nu" id_is_num="0" w="9" x="132" y="0"/>
+    <sym b="4" h="17" id="xi" id_is_num="0" w="9" x="141" y="0"/>
+    <sym b="2" h="12" id="111" id_is_num="1" w="9" x="150" y="0"/>
+    <sym b="0" h="8" id="pi" id_is_num="0" w="11" x="159" y="0"/>
+    <sym b="0" h="8" id="varpi" id_is_num="0" w="16" x="170" y="0"/>
+    <sym b="4" h="12" id="rho" id_is_num="0" w="10" x="186" y="0"/>
+    <sym b="4" h="12" id="varrho" id_is_num="0" w="9" x="196" y="0"/>
+    <sym b="0" h="8" id="sigma" id_is_num="0" w="11" x="205" y="0"/>
+    <sym b="2" h="10" id="varsigma" id_is_num="0" w="7" x="216" y="0"/>
+    <sym b="0" h="8" id="tau" id_is_num="0" w="10" x="223" y="0"/>
+    <sym b="0" h="8" id="upsilon" id_is_num="0" w="10" x="233" y="0"/>
+    <sym b="4" h="17" id="phi" id_is_num="0" w="10" x="243" y="0"/>
+    <sym b="4" h="12" id="varphi" id_is_num="0" w="11" x="253" y="0"/>
+    <sym b="4" h="12" id="chi" id_is_num="0" w="12" x="264" y="0"/>
+    <sym b="4" h="17" id="psi" id_is_num="0" w="12" x="276" y="0"/>
+    <sym b="0" h="8" id="omega" id_is_num="0" w="12" x="288" y="0"/>
+    <sym b="0" h="13" id="Gamma" id_is_num="0" w="11" x="300" y="0"/>
+    <sym b="0" h="13" id="Theta" id_is_num="0" w="13" x="311" y="0"/>
+    <sym b="0" h="13" id="Delta" id_is_num="0" w="14" x="324" y="0"/>
+    <sym b="0" h="13" id="Lambda" id_is_num="0" w="12" x="338" y="0"/>
+    <sym b="0" h="13" id="Xi" id_is_num="0" w="12" x="350" y="0"/>
+    <sym b="0" h="13" id="Pi" id_is_num="0" w="14" x="362" y="0"/>
+    <sym b="0" h="13" id="Sigma" id_is_num="0" w="12" x="376" y="0"/>
+    <sym b="0" h="13" id="Upsilon" id_is_num="0" w="13" x="388" y="0"/>
+    <sym b="0" h="13" id="Phi" id_is_num="0" w="12" x="401" y="0"/>
+    <sym b="0" h="13" id="Psi" id_is_num="0" w="13" x="413" y="0"/>
+    <sym b="0" h="13" id="Omega" id_is_num="0" w="13" x="426" y="0"/>
+  </font>
+</CLUFont>

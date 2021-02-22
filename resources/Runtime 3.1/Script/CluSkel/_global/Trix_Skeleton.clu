@@ -1,0 +1,64 @@
+// Filetype:trix
+
+_BGColor = White;
+
+// Things that should only be done once at the start of the script
+if ( ExecMode & EM_CHANGE )
+{
+	_bDataSet = true;
+	sFilename = @"";
+	bEnableLogo = true; // Powered by CluViz
+
+	dDegPerSec = 10; // Rotation speed 1 - 90?
+	dMaxDeg = 45; // Maximum rotation (degree) 1 - 360
+	dViewAngle = 40; // Camera view angle 10 - 100
+	dBrightness = 1.5; // Brightness adjustment 0.5 - 4
+	iAnimTimeStep = 80;
+	dImgRotDeg = 0; // 90 degree flips
+	iResolutionDivider = 4;
+
+	sPaintType = "image"; // Initial paint type
+	lPaintType = ["image", "topo", "mix", "topotex"];
+//	lPaintType = ["image", "topo", "topotex"];
+	
+	dPaintSplitAlign = 0.0; // Offset for mix -0.5 .. 0.5
+	dPaintSplitSide = -1.0; // Bool for mix
+	dTopoLevelCount = 30.0; // (Line count) 
+	dTopoLevelWidth = 0.1; // (Line width)
+	
+	dDepthMin = 0.0; // Crop percent
+	dDepthMax = 1.0;
+
+	dDepthGamma = 1.0;
+	
+	dObjectWidth = 3.0; // Scaling 0.1 - 10 0.0
+	dObjectScale = 1.0; // Scaling Z / Depth 0.1 - 10
+	
+	dBorderTop = 0.0; // Crop 
+	dBorderRight = 0.0;
+	dBorderBottom = 0.0;
+	dBorderLeft = 0.0;
+	
+	bShowView_Depth = true; // Enable / disable views
+	bShowView_Image = true;
+
+	bShowBut_EnableAnim = true; // Toggle anim button
+	bShowBut_Video = true; // (Toggle video button)
+	bShowBut_Paint = true; // Toggle paint button
+
+	bEnableFocusPlane = true;
+	bEnableImageDefocus = true;
+	//bShowSlider_BlurGrad = true;
+	bShowSlider_DefocusGrad = true; // Slider toggle
+	
+	bAnimPlay = false; // Video autostart
+	bAnimRot = true; // Initial value for rotation animation
+	sAnimRotType = "PingPong"; // Issue - constant does not work
+	[dAX1,dAY1,dAZ1, dAA1] = [0,1,0,0]; // Rotation axis
+	
+	[dX1,dY1,dZ1, dA1] = [0,1,0,-15]; // Initial rotation
+	[dX2, dY2, dZ2, dA2] = [1,0,0, 5];
+}
+
+////# include "View_Trix_v3_0.clu"
+//# include "View_Trix_v3_0.cbn"
