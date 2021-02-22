@@ -1,0 +1,102 @@
+DefVarsN3();
+:IPNS;
+Cylinder=
+{
+	a = _P(1);
+	b = _P(2);
+	r = _P(3);
+	
+	ae=(a^(e^e0))*(e^e0);
+	be=(b^(e^e0))*(e^e0);
+	d=(be-ae);
+	dc = d+((0.5*d^^2)*e)+e0;
+	
+	:Color(0.4, 0.4,0.4);
+	DrawCylinder(a,dc,r,72,true);
+}
+Sphere =
+{
+ point = _P(1);
+ r = _P(2);
+ :Yellow;
+ :sphere = point - 1/2*r^^2*einf;
+}
+
+Feet =
+{
+c = _P(1);
+h = _P(2);
+w = _P(3);
+d = _P(4);
+
+ce = (c^(e^e0))*(e^e0);
+he = (h^(e^e0))*(e^e0);
+we = (w^(e^e0))*(e^e0);
+de = (d^(e^e0))*(e^e0);
+
+x = 2*(he-ce);
+y = 2 * (we-ce);
+z = 2 * (de - ce);
+
+hi = x + ((0.5*x^^2)*e) + e0;
+wi = y + ((0.5*y^^2)*e) + e0;
+di = z + ((0.5*z^^2)*e) + e0;
+
+:Color(0.4, 0.4,0.4);
+DrawBox(c, hi, wi, di);
+}
+
+Eye =
+{
+	a = _P(1);
+	b = _P(2);
+	r = _P(3);
+	
+	ae=(a^(e^e0))*(e^e0);
+	be=(b^(e^e0))*(e^e0);
+	d=(be-ae);
+	dc = d+((0.5*d^^2)*e)+e0;
+	
+	:Yellow;
+	DrawCylinder(a,dc,r,72,false);
+}
+
+Nose = 
+{
+	a = _P(1);
+	b = _P(2);
+	r = _P(3);
+	
+	ae=(a^(e^e0))*(e^e0);
+	be=(b^(e^e0))*(e^e0);
+	d=(be-ae);
+	dc = d+((0.5*d^^2)*e)+e0;
+	
+	:Color(0.4, 0.4,0.4);
+	DrawCone(a,dc,r);
+}
+
+Floor =
+{
+c = _P(1);
+h = _P(2);
+w = _P(3);
+d = _P(4);
+
+ce = (c^(e^e0))*(e^e0);
+he = (h^(e^e0))*(e^e0);
+we = (w^(e^e0))*(e^e0);
+de = (d^(e^e0))*(e^e0);
+
+x = 2*(he-ce);
+y = 2 * (we-ce);
+z = 2 * (de - ce);
+
+hi = x + ((0.5*x^^2)*e) + e0;
+wi = y + ((0.5*y^^2)*e) + e0;
+di = z + ((0.5*z^^2)*e) + e0;
+
+:Color(0.55, 0.65,0.32);
+DrawBox(c, hi, wi, di);
+}
+

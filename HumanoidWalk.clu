@@ -1,0 +1,264 @@
+//#include "Functions.clu"
+DefVarsN3();
+DrawFrame(1, "axes");
+:IPNS;
+r = 0.055;
+c = 0.03;
+factor = 3.5 / 2300;
+
+anim = CheckBox("Start Animation", 0);
+if (anim)
+{
+	EnableAnimate(true);
+}
+else
+{
+	EnableAnimate(false);
+}
+
+if(ExecMode & EM_CHANGE)
+{
+
+	D=ReadData("input.dat");
+}
+S = Size(D);
+C= round(Time*50,0)%S+1;
+
+TBF=TranslatorN3(D(C,1),D(C,2),D(C,3));
+RBFx = RotorN3(1, 0, 0, D(C,4));
+RBFy = RotorN3(0, 1, 0, D(C,5));
+RBFz = RotorN3(0, 0, 1, D(C,6));
+MBF=RBFx*RBFy*RBFz *TBF;
+BFp = MBF * e0 * (~MBF);
+:Yellow;
+:BF = BFp - 1/2*r^^2*einf;
+
+//LLJ1
+
+RLLJ1x = RotorN3(1, 0, 0, D(C,7));
+RLLJ1z = RotorN3(0, 0, 1, D(C,8));
+MLLJ1=MBF*RLLJ1x*RLLJ1z;
+LLJ1p = MLLJ1 * e0 * (~MLLJ1);
+
+TLLJ1pf1 = TranslatorN3(0,409.4*factor,0);
+RLNJx = RotorN3(1, 0, 0, D(C,9)); //no + Pi / 8
+RLNJy = RotorN3(0, 1, 0, D(C,10));
+MLLJ1pf1 = MLLJ1*TLLJ1pf1*RLNJx*RLNJy;
+LLJ1pf1 = MLLJ1pf1 * e0 * (~MLLJ1pf1);
+:LLJ1 = LLJ1p - 1/2*r^^2*einf;
+::Cylinder(LLJ1p, LLJ1pf1, c);
+
+//neck LNJ
+RLNJx = RotorN3(1, 0, 0, D(C,9));
+RLNJy = RotorN3(0, 1, 0, D(C,10));
+TLNJ = TranslatorN3(0, 70*factor, 0);
+MLNJ = MLLJ1pf1 * TLNJ * RLNJx * RLNJy;
+LNJ = MLNJ * e0 * (~MLNJ);
+::Cylinder(LLJ1pf1, LNJ, c);
+::Sphere(LNJ, r);
+
+//LLJ2
+TLLJ1pf2 = TranslatorN3(0,-119.5*factor,0);
+MLLJ1pf2 = MBF*TLLJ1pf2;
+LLJ1pf2 = MLLJ1pf2 * e0 * (~MLLJ1pf2);
+::Cylinder(LLJ1p, LLJ1pf2, c);
+
+//SJR
+RSJRx = RotorN3(1, 0, 0, D(C,15)); //- Pi / 4
+RSJRy = RotorN3(0,1,0,D(C,16));
+RSJRz = RotorN3(0,0,1,D(C,17));
+
+TSJR = TranslatorN3((-176.3) * factor, (-10) * factor, 0);
+MSJR = MLLJ1pf1*TSJR*RSJRx*RSJRy*RSJRz;
+SJR = MSJR * e0 * (~MSJR);
+::Cylinder(LLJ1pf1, SJR, c);
+::Sphere(SJR, r);
+
+//EJR
+REJRx = RotorN3(1, 0, 0, D(C,18)); /// x o z
+TEJR = TranslatorN3(-30*factor, -239.3*factor, 0);
+MEJR = MSJR*TEJR*REJRx;
+EJR = MEJR * e0 * (~MEJR);
+::Cylinder(SJR, EJR, c);
+::Sphere(EJR, r);
+
+//WJR
+TWJR = TranslatorN3(-45*factor, -250.0*factor, 0);
+MWJR = MEJR*TWJR;
+WJR = MWJR * e0* (~MWJR);
+::Cylinder(EJR, WJR, c);
+::Sphere(WJR, r);
+
+//SJL
+RSJLx = RotorN3(1, 0, 0, D(C,11)); //+ Pi/4;
+RSJLy = RotorN3(0, 1, 0, D(C,12));
+RSJLz = RotorN3(0, 0, 1, -D(C,13));
+
+TSJL = TranslatorN3( 176.3 * factor, -10 * factor, 0);
+MSJL = MLLJ1pf1*TSJL*RSJLx*RSJLy*RSJLz;
+SJL = MSJL * e0 * (~MSJL);
+::Cylinder(LLJ1pf1, SJL, c);
+::Sphere(SJL, r);
+
+//EJL
+REJLx = RotorN3(1, 0, 0, D(C,14));
+TEJL = TranslatorN3(30*factor, -239.3*factor, 0);
+MEJL = MSJL*TEJL*REJLx;
+EJL = MEJL * e0 * (~MEJL);
+::Cylinder(SJL, EJL, c);
+::Sphere(EJL, r);
+
+//WJR
+TWJL = TranslatorN3(45*factor, -250.0*factor, 0);
+MWJL = MEJL*TWJL;
+WJL = MWJL * e0* (~MWJL);
+::Cylinder(EJL, WJL, c);
+::Sphere(WJL, r);
+
+//HJR
+RHJRx = RotorN3(1, 0, 0, D(C,26));
+RHJRy = RotorN3(0, 1, 0, D(C,27));
+RHJRz = RotorN3(0, 0, 1, D(C,28));
+THJR = TranslatorN3(-93.35*factor, 0, 0);
+MHJR = MLLJ1pf2 * THJR * RHJRx * RHJRy * RHJRz;
+HJR = MHJR * e0 * (~MHJR);
+::Cylinder(LLJ1pf2, HJR, c);
+::Sphere(HJR, r);
+
+//KJR
+RKJRx = RotorN3(1, 0, 0, D(C,29));
+TKJR = TranslatorN3(0, -380.6 * factor, 0);
+MKJR = MHJR * TKJR * RKJRx;
+KJR = MKJR * e0 * (~MKJR);
+::Cylinder(HJR, KJR, c);
+::Sphere(KJR, r);
+
+//AJR
+
+RAJRx = RotorN3(1, 0, 0, D(C,30));
+RAJRy = RotorN3(0, 1, 0, D(C,31));
+RAJRz = RotorN3(0, 0, 1, D(C,32));
+TAJR = TranslatorN3(0, -211.6 * factor, 0);
+MAJR = MKJR * TAJR * RAJRx * RAJRy * RAJRz;
+AJR = MAJR * e0 * (~MAJR);
+::Cylinder(KJR, AJR, c);
+::Sphere(AJR, r);
+//(centro, rojo, verde, azul)
+
+TFR = TranslatorN3(0,0, 50*factor);
+MFR = MAJR*TFR;
+FR = MFR*e0*(~MFR);
+
+TFRRED = TranslatorN3(50*factor, 0, 0);
+MFRRED = MFR * TFRRED;
+FRRED = MFRRED * e0 * (~MFRRED);
+
+TFRGREEN = TranslatorN3(0, 20*factor, 0);
+MFRGREEN = MFR * TFRGREEN;
+FRGREEN = MFRGREEN* e0 * (~MFRGREEN);
+
+
+TFRBLUE = TranslatorN3(0, 0, 100*factor);
+MFRBLUE = MFR * TFRBLUE;
+FRBLUE = MFRBLUE * e0 * (~MFRBLUE);
+
+::Feet(FR, FRRED, FRGREEN, FRBLUE);
+
+//FLOOR
+TCENTRO = TranslatorN3(0, -120*factor,0);
+CENTRO = TCENTRO * e0 * (~TCENTRO);
+
+TRED = TranslatorN3(1000*factor, 0, 0);
+TRED = TCENTRO*TRED;
+RED = TRED * e0 * (~TRED);
+ 
+TBLUE = TranslatorN3(0, 0, 1500*factor);
+TBLUE = TCENTRO*TBLUE;
+BLUE = TBLUE * e0 * (~TBLUE);
+
+TGREEN = TranslatorN3(0, -20*factor, 0);
+TGREEN = TCENTRO*TGREEN;
+GREEN = TGREEN * e0 * (~TGREEN);
+
+::Floor(CENTRO, RED, GREEN, BLUE);
+
+//HJL
+RHJLx = RotorN3(1, 0, 0, D(C,19));
+RHJLy = RotorN3(0, 1, 0, D(C,20));
+RHJLz = RotorN3(0, 0, 1, D(C,21));
+THJL = TranslatorN3(93.35*factor, 0, 0);
+MHJL = MLLJ1pf2 * THJL * RHJLx * RHJLy * RHJLz;
+HJL = MHJL * e0 * (~MHJL);
+::Cylinder(LLJ1pf2, HJL, c);
+::Sphere(HJL, r);
+
+//KJL
+RKJLx = RotorN3(1, 0, 0, D(C,22));
+TKJL = TranslatorN3(0, -380.6 * factor, 0);
+MKJL = MHJL * TKJL * RKJLx;
+KJL = MKJL * e0 * (~MKJL);
+::Cylinder(HJL, KJL, c);
+::Sphere(KJL, r);
+
+//AJL
+RAJLx = RotorN3(1, 0, 0, D(C,23));
+RAJLy = RotorN3(0, 1, 0, D(C,24));
+RAJLz = RotorN3(0, 0, 1, D(C,25));
+TAJL = TranslatorN3(0, -211.6 * factor, 0);
+MAJL = MKJL * TAJL * RAJLx * RAJLy * RAJLz;
+AJL = MAJL * e0 * (~MAJL);
+::Cylinder(KJL, AJL, c);
+::Sphere(AJL, r);
+
+TFL = TranslatorN3(0,0, 50*factor);
+MFL = MAJL*TFL;
+FL = MFL*e0*(~MFL);
+
+TFLRED = TranslatorN3(50*factor, 0, 0);
+MFLRED = MFL * TFLRED;
+FLRED = MFLRED * e0 * (~MFLRED);
+
+TFLGREEN = TranslatorN3(0, 20*factor, 0);
+MFLGREEN = MFL * TFLGREEN;
+FLGREEN = MFLGREEN* e0 * (~MFLGREEN);
+
+TFLBLUE = TranslatorN3(0, 0, 100*factor);
+MFLBLUE = MFL * TFLBLUE;
+FLBLUE = MFLBLUE * e0 * (~MFLBLUE);
+
+//::Feet(FR, FR + VecN3(100*factor, 0, 0), FR + VecN3(0, 20*factor, 0), FR + VecN3(0, 0, 50*factor));
+::Feet(FL, FLRED, FLGREEN, FLBLUE);
+
+//H
+TH = TranslatorN3(0,212*factor, 0);
+MH = MLNJ*TH;
+H = MH*e0*(~MH);
+::Cylinder(LNJ, H, 0.2);
+
+// eyes EYR
+TEYR1 = TranslatorN3(-70*factor,100*factor, 0.06);
+MEYR1 = MLNJ * TEYR1;
+EYR1 = MEYR1 * e0 * (~MEYR1);
+TEYR2 = TranslatorN3(-70*factor,100*factor, 0.215);
+MEYR2 = MLNJ * TEYR2;
+EYR2 = MEYR2 * e0 * (~MEYR2);
+::Eye(EYR1, EYR2, 0.05);
+
+// EYL
+TEYL1 = TranslatorN3(70*factor,100*factor, 0.06);
+MEYL1 = MLNJ * TEYL1;
+EYL1 = MEYL1 * e0 * (~MEYL1);
+TEYL2 = TranslatorN3(70*factor,100*factor, 0.215);
+MEYL2 = MLNJ * TEYL2;
+EYL2 = MEYL2 * e0 * (~MEYL2);
+::Eye(EYL1, EYL2, 0.05);
+
+// NOSE 
+TN1 = TranslatorN3(0, 70*factor, 0.18);
+MN1 = MLNJ * TN1;
+N1 = MN1 * e0 * (~MN1);
+TN2 = TranslatorN3(0, 70*factor, 0.38);
+MN2 = MLNJ * TN2;
+N2 = MN2 * e0 * (~MN2);
+::Nose(N2, N1, 0.05);
+
